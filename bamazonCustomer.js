@@ -41,8 +41,9 @@ function startApp() {
             movieItems();
         } else if (answer.search === "Music") {
             musicItems();
-        } else(answer.search === "Not Sure")
-        allItems();
+        } else if (answer.search === "Not Sure") { 
+            allItems();
+        }
     });
 }
 
@@ -102,11 +103,9 @@ function allItems() {
 
         //Formatting Database Table in the Terminal Screen
         var t = new Table({
-            borderStyle: 3,
+            borderStyle: 2,
             horizontalLine: true,
-            width: [5, "40%", "10%", 10, 5]
-        }, {
-            attrs: "center"
+            width: [5, 40, 5]
         });
 
         t.push(["ID", "Product", "Price"]);
@@ -121,16 +120,20 @@ function allItems() {
 }
 //Display Apparel Items in mqSQL Database in Terminal Window
 function apparelItems() {
-    var displayData = "SELECT department_name FROM products WHERE ?";
-    connection.query(displayData, function (error, response) {
+    var displayData = "SELECT id, product_name, price FROM products WHERE department_name= 'Apparel'";
+    connection.query(displayData,
+        function (error, response) {
+           for (var i = 0; i < response.length; i++) {
+            //    console.log(response[i].id + response[i].product_name + response[i].price);
+           }
         if (error) throw error;
-        console.log("\n\n");
+        console.log("\n");
 
         //Formatting Database Table in the Terminal Screen
         var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
-            width: [5, "40%", "10%", 10, 5]
+            width: [5, 40, 5]
         }, {
             attrs: "center"
         });
@@ -156,7 +159,7 @@ function toyItems() {
         var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
-            width: [5, "40%", "10%", 10, 5]
+            width: [5, 40, 5]
         }, {
             attrs: "center"
         });
@@ -182,7 +185,7 @@ function movieItems() {
         var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
-            width: [5, "40%", "10%", 10, 5]
+            width: [5, 40, 5]
         }, {
             attrs: "center"
         });
@@ -208,7 +211,7 @@ function musicItems() {
         var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
-            width: [5, "40%", "10%", 10, 5]
+            width: [5, 40, 5]
         }, {
             attrs: "center"
         });
