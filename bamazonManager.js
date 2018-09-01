@@ -34,7 +34,7 @@ function startApp() {
             } else if (answer.search === "View Low Inventory.") {
                 lowInventory();
             } else if (answer.search === "Add to Inventory") {
-                addInventory();
+                lowInventoryShow();
             } else if (answer.search === "Add New Product") {
                 newProduct();
             }
@@ -92,7 +92,44 @@ function saleProducts() {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
+        endConnection();
+    });
+}
+function showInventory() {
+    var displayData = "SELECT * FROM products";
+    connection.query(displayData, function (error, response) {
+        if (error) throw error;
+        console.log("\n");
+        console.log("Updated Inventory Levels")
+
+        //Formatting Database Table in the Terminal Screen
+        var t = new Table ({
+            borderStyle: 3,
+            horizontalLine: true,
+            width: [5, 60, 15]
+        });
+
+        t.push(["ID", "Product", "Price", "Stock Quantity"]);
+        t.attrRange({row: [0, 1]}, {
+            align: "center",
+            color: "blue",
+            bg: "black"
+          });
+          t.attrRange({row: [1], column: [0,3]}, {
+            color: "green",
+            bg: "black"
+          });
+          t.attrRange({column: [0,1]},
+        {align: "center"});
+        t.attrRange({column: [2]},
+            {align: "right"});
+
+        response.forEach(function (Items) {
+            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+        });
+
+        console.log("" + t);
         endConnection();
     });
 }
@@ -123,14 +160,51 @@ function lowInventory() {
           t.attrRange({column: [0,1]},
         {align: "center"});
         t.attrRange({column: [2]},
-            {align: "right"});
+            {align: "center"});
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
         endConnection();
+    });
+}
+// Function to Show Low Inventory before add Inventory Function but NOT END CONNECTION
+function lowInventoryShow() {
+    var displayData = "SELECT * FROM products WHERE stock_quantity < 5";
+    connection.query(displayData, function (error, response) {
+        if (error) throw error;
+        console.log("\n\n");
+        console.log("Low Inventory Levels");
+        //Formatting Database Table in the Terminal Screen
+        var t = new Table ({
+            borderStyle: 3,
+            horizontalLine: true,
+            width: [5, 60, 15]
+        });
+
+        t.push(["ID", "Product", "Price", "Stock Quantity"]);
+        t.attrRange({row: [0, 1]}, {
+            align: "center",
+            color: "blue",
+            bg: "black"
+          });
+          t.attrRange({row: [1], column: [0,3]}, {
+            color: "green",
+            bg: "black"
+          });
+          t.attrRange({column: [0,1]},
+        {align: "center"});
+        t.attrRange({column: [2]},
+            {align: "center"});
+
+        response.forEach(function (Items) {
+            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+        });
+
+        console.log("" + t);
+        addInventory();
     });
 }
 //Function for Adding to Inventory Levels
@@ -151,6 +225,7 @@ function addInventory() {
             var userQty = parseInt(answer.stock);
             var sql = "SELECT * FROM products Where ?";
             // console.log("userQty", userQty);
+            
             connection.query(sql, {
                 id: userItem
             }, function (error, response) {
@@ -172,7 +247,7 @@ function addInventory() {
                     ], function (error, data) {
                         if (error) throw error;
                         console.log("Stock has been updated. You have added " + answer.stock);
-                        endConnection();
+                        showInventory();
                     })
                 }
             });

@@ -15,6 +15,25 @@ connection.connect(function (error) {
     if (error) throw error;
     startApp();
 });
+//End Connection Function
+function endConnection() {
+    inquirer.prompt({
+            name: "end",
+            type: "list",
+            message: "Are you ready to end the connection?",
+            choices: [
+                "YES",
+                "NO"
+            ]
+        })
+        .then(function (answer) {
+            if (answer.end === "YES") {
+                connection.end();
+            } else if (answer.end === "NO") {
+                startApp();
+            }
+        });
+}
 //App Start Function
 function startApp() {
     inquirer.prompt({
@@ -84,8 +103,10 @@ function userPrompt() {
                         if (error) throw error;
                         // console.log(data);
                         console.log("Your order has been processed. Your total is $" + response[0].price * userQty);
+                        endConnection();
+
                     })
-                    connection.end();
+                    
                 }
             });
         });
@@ -164,7 +185,7 @@ function apparelItems() {
             t.push([Items.id, Items.product_name, "$" + Items.price])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
         userPrompt();
     });
 }
@@ -204,7 +225,7 @@ function toyItems() {
             t.push([Items.id, Items.product_name, "$" + Items.price])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
         userPrompt();
     });
 }
@@ -244,7 +265,7 @@ function movieItems() {
             t.push([Items.id, Items.product_name, "$" + Items.price])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
         userPrompt();
     });
 }
@@ -284,7 +305,7 @@ function musicItems() {
             t.push([Items.id, Items.product_name, "$" + Items.price])
         });
 
-        console.log(" " + t);
+        console.log("" + t);
         userPrompt();
     });
 }
