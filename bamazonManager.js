@@ -67,26 +67,37 @@ function saleProducts() {
         console.log("\n\n");
 
         //Formatting Database Table in the Terminal Screen
-        var t = new Table ({
+        var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
             width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
-        t.attrRange({row: [0, 1]}, {
+        t.attrRange({
+            row: [0, 1]
+        }, {
             align: "center",
             color: "blue",
             bg: "black"
-          });
-          t.attrRange({row: [1], column: [0,3]}, {
+        });
+        t.attrRange({
+            row: [1],
+            column: [0, 3]
+        }, {
             color: "green",
             bg: "black"
-          });
-          t.attrRange({column: [0,1]},
-        {align: "center"});
-        t.attrRange({column: [2]},
-            {align: "right"});
+        });
+        t.attrRange({
+            column: [0, 1]
+        }, {
+            align: "center"
+        });
+        t.attrRange({
+            column: [2]
+        }, {
+            align: "right"
+        });
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
@@ -96,6 +107,7 @@ function saleProducts() {
         endConnection();
     });
 }
+// Function for Viewing Updated Inventory Levels after Adding Stock.
 function showInventory() {
     var displayData = "SELECT * FROM products";
     connection.query(displayData, function (error, response) {
@@ -104,26 +116,38 @@ function showInventory() {
         console.log("Updated Inventory Levels")
 
         //Formatting Database Table in the Terminal Screen
-        var t = new Table ({
+        var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
             width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
-        t.attrRange({row: [0, 1]}, {
+        t.attrRange({
+            row: [0, 1]
+        }, {
             align: "center",
             color: "blue",
             bg: "black"
-          });
-          t.attrRange({row: [1], column: [0,3]}, {
+        });
+        t.attrRange({
+            row: [1],
+            column: [0, 3]
+        }, {
             color: "green",
             bg: "black"
-          });
-          t.attrRange({column: [0,1]},
-        {align: "center"});
-        t.attrRange({column: [2]},
-            {align: "right"});
+        });
+        t.attrRange({
+            column: [0, 1]
+        }, {
+            align: "center"
+        });
+
+        t.attrRange({
+            column: [2]
+        }, {
+            align: "right"
+        });
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
@@ -141,33 +165,44 @@ function lowInventory() {
         console.log("\n\n");
         console.log("Low Inventory Levels");
         //Formatting Database Table in the Terminal Screen
-        var t = new Table ({
+        var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
             width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
-        t.attrRange({row: [0, 1]}, {
+        t.attrRange({
+            row: [0, 1]
+        }, {
             align: "center",
             color: "blue",
             bg: "black"
-          });
-          t.attrRange({row: [1], column: [0,3]}, {
+        });
+        t.attrRange({
+            row: [1],
+            column: [0, 3]
+        }, {
             color: "green",
             bg: "black"
-          });
-          t.attrRange({column: [0,1]},
-        {align: "center"});
-        t.attrRange({column: [2]},
-            {align: "center"});
+        });
+        t.attrRange({
+            column: [0, 1]
+        }, {
+            align: "center"
+        });
+        t.attrRange({
+            column: [2]
+        }, {
+            align: "center"
+        });
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
         console.log("" + t);
-        endConnection();
+        addInvendCon();
     });
 }
 // Function to Show Low Inventory before add Inventory Function but NOT END CONNECTION
@@ -178,26 +213,37 @@ function lowInventoryShow() {
         console.log("\n\n");
         console.log("Low Inventory Levels");
         //Formatting Database Table in the Terminal Screen
-        var t = new Table ({
+        var t = new Table({
             borderStyle: 3,
             horizontalLine: true,
             width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
-        t.attrRange({row: [0, 1]}, {
+        t.attrRange({
+            row: [0, 1]
+        }, {
             align: "center",
             color: "blue",
             bg: "black"
-          });
-          t.attrRange({row: [1], column: [0,3]}, {
+        });
+        t.attrRange({
+            row: [1],
+            column: [0, 3]
+        }, {
             color: "green",
             bg: "black"
-          });
-          t.attrRange({column: [0,1]},
-        {align: "center"});
-        t.attrRange({column: [2]},
-            {align: "center"});
+        });
+        t.attrRange({
+            column: [0, 1]
+        }, {
+            align: "center"
+        });
+        t.attrRange({
+            column: [2]
+        }, {
+            align: "center"
+        });
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
@@ -225,7 +271,7 @@ function addInventory() {
             var userQty = parseInt(answer.stock);
             var sql = "SELECT * FROM products Where ?";
             // console.log("userQty", userQty);
-            
+
             connection.query(sql, {
                 id: userItem
             }, function (error, response) {
@@ -251,7 +297,7 @@ function addInventory() {
                     })
                 }
             });
-           
+
         });
 }
 //Function for Adding a New Product
@@ -285,17 +331,56 @@ function newProduct() {
         ])
         .then(function (answer) {
             var sql = "INSERT INTO products SET ?";
-            connection.query( sql,
-                {
-                product_name:answer.product,
-                department_name:answer.department,
-                price:answer.price,
-                stock_quantity:answer.stock
-                }, 
-                function(error, response) {
+            connection.query(sql, {
+                    product_name: answer.product,
+                    department_name: answer.department,
+                    price: answer.price,
+                    stock_quantity: answer.stock
+                },
+                function (error, response) {
                     console.log("The new product has been added!");
                     endConnection();
                 }
-        );
+            );
         })
+}
+//Prompt to add Inventory or End Connection
+function addInvendCon() {
+    inquirer.prompt({
+        name: "decide",
+        type: "list",
+        message: "Would you like to add stock?",
+        choices: [
+            "YES",
+            "NO"
+        ]
+    })
+    .then(function(answer){
+        if (answer.decide === "YES") {
+            addInventory();
+        } else if (answer.decide === "NO") {
+            doWhat();
+        }
+    })
+
+}
+//Prompt Asking what user would like to do next
+function doWhat() {
+    inquirer.prompt({
+        name:"decision",
+        type: "list",
+        message: "What would you like to do next?",
+        choices: [
+            "Return to Main Menu?",
+            "End Connection?"
+        ]
+    })
+    .then(function(answer){
+        if(answer.decision === "Return to Main Menu?") {
+            startApp();
+        }
+        else if(answer.decision === "End Connection?") {
+            endConnection();
+        }
+    })
 }
