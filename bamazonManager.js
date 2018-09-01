@@ -70,16 +70,23 @@ function saleProducts() {
         var t = new Table ({
             borderStyle: 3,
             horizontalLine: true,
-            width: [3],
-            border:{
-                sep:"U2551",
-                topLeft:"U2554", topmid: "U2566", top:"U2550", topRight:"U2557",
-                midLeft:"U2560", midMid:"U256C", mid:"U2550", midRight:"U2563",
-                botLeft:"U255A", botMid:"U2569", bot:"U2550", botRight:'U255D'
-            }
+            width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
+        t.attrRange({row: [0, 1]}, {
+            align: "center",
+            color: "blue",
+            bg: "black"
+          });
+          t.attrRange({row: [1], column: [0,3]}, {
+            color: "green",
+            bg: "black"
+          });
+          t.attrRange({column: [0,1]},
+        {align: "center"});
+        t.attrRange({column: [2]},
+            {align: "right"});
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
@@ -100,16 +107,23 @@ function lowInventory() {
         var t = new Table ({
             borderStyle: 3,
             horizontalLine: true,
-            width: [3],
-            border:{
-                sep:"U2551",
-                topLeft:"U2554", topmid: "U2566", top:"U2550", topRight:"U2557",
-                midLeft:"U2560", midMid:"U256C", mid:"U2550", midRight:"U2563",
-                botLeft:"U255A", botMid:"U2569", bot:"U2550", botRight:'U255D'
-            }
+            width: [5, 60, 15]
         });
 
         t.push(["ID", "Product", "Price", "Stock Quantity"]);
+        t.attrRange({row: [0, 1]}, {
+            align: "center",
+            color: "blue",
+            bg: "black"
+          });
+          t.attrRange({row: [1], column: [0,3]}, {
+            color: "green",
+            bg: "black"
+          });
+          t.attrRange({column: [0,1]},
+        {align: "center"});
+        t.attrRange({column: [2]},
+            {align: "right"});
 
         response.forEach(function (Items) {
             t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
