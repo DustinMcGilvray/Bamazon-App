@@ -100,7 +100,7 @@ function saleProducts() {
         });
 
         response.forEach(function (Items) {
-            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+            t.push([Items.ID, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
         console.log("" + t);
@@ -150,7 +150,7 @@ function showInventory() {
         });
 
         response.forEach(function (Items) {
-            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+            t.push([Items.ID, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
         console.log("" + t);
@@ -198,7 +198,7 @@ function lowInventory() {
         });
 
         response.forEach(function (Items) {
-            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+            t.push([Items.ID, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
         console.log("" + t);
@@ -246,7 +246,7 @@ function lowInventoryShow() {
         });
 
         response.forEach(function (Items) {
-            t.push([Items.id, Items.product_name, "$" + Items.price, Items.stock_quantity])
+            t.push([Items.ID, Items.product_name, "$" + Items.price, Items.stock_quantity])
         });
 
         console.log("" + t);
@@ -273,7 +273,7 @@ function addInventory() {
             // console.log("userQty", userQty);
 
             connection.query(sql, {
-                id: userItem
+                ID: userItem
             }, function (error, response) {
                 // console.log(response);
                 // console.log(response[0].stock_quantity)
@@ -288,7 +288,7 @@ function addInventory() {
                             stock_quantity: response[0].stock_quantity + userQty
                         },
                         {
-                            id: userItem
+                            ID: userItem
                         }
                     ], function (error, data) {
                         if (error) throw error;
@@ -339,7 +339,7 @@ function newProduct() {
                 },
                 function (error, response) {
                     console.log("The new product has been added!");
-                    endConnection();
+                    saleProducts();
                 }
             );
         })

@@ -78,6 +78,8 @@ function userPrompt() {
         .then(function (answer) {
             var userItem = answer.id;
             var userQty = answer.stock;
+          
+           
             var sql = "SELECT * FROM products Where ?";
             connection.query(sql, {
                 id: userItem
@@ -91,10 +93,16 @@ function userPrompt() {
                     console.log("We are processing your order.");
 
                     // Update the mySQL Database
+                    var itemPrice = response[0].price;
+                    var newSale = itemPrice * userQty;
+                    var productSales = response[0].product_sales;
+                    var productSalesTotal = productSales + newSale;
                     var updateQty = "UPDATE products SET ? WHERE ?";
+
                     connection.query(updateQty, [
                         {
-                            stock_quantity:response[0].stock_quantity-userQty
+                            stock_quantity:response[0].stock_quantity-userQty,
+                            product_sales:productSalesTotal
                         },
                         {
                             id:userItem
@@ -142,7 +150,7 @@ function allItems() {
             {align: "right"});
 
         response.forEach(function (Items) {
-            t.push([Items.id, Items.product_name, "$" + Items.price])
+            t.push([Items.ID, Items.product_name, "$" + Items.price])
         });
 
         console.log("" + t);
