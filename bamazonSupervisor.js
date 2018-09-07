@@ -36,7 +36,8 @@ function startApp() {
 }
 
 function viewProductSales() {
-    var displayData = "SELECT * FROM departments";
+    // var displayData = "SELECT * FROM departments";
+    var displayData = "SELECT departments. *, SUM(products.product_sales) AS total_sales FROM departments LEFT JOIN products ON departments.department_name GROUP BY products.department_name";
     connection.query(displayData,
         function (error, response) {
         if (error) throw error;
@@ -49,7 +50,7 @@ function viewProductSales() {
             width: [5, 60, 15]
         });
 
-        t.push(["ID", "Department", "Overhead Cost","Product Sales"]);
+        t.push(["ID", "Department", "Overhead Cost","Total Sales", "Total Profit"]);
         t.attrRange({row: [0, 1]}, {
             align: "center",
             color: "blue",
@@ -65,10 +66,8 @@ function viewProductSales() {
             {align: "right"});
 
         response.forEach(function (Items) {
-            t.push([Items.ID, Items.department_name, "$" + Items.overhead_costs, "$" + Items.product_sales])
+            t.push([Items.ID, Items.department_name, "$" + Items.overhead_costs, "$" + Items.product_sales, "$" + Items.product_sales - Items.overhead_costs])
         });
-
-        //NEED TO POPULATE PRODUCT SALES 
 
         console.log("" + t);
         

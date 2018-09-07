@@ -80,7 +80,7 @@ function userPrompt() {
             var userQty = answer.stock;
           
            
-            var sql = "SELECT * FROM products Where ?";
+            var sql = "SELECT * FROM products WHERE ?";
             connection.query(sql, {
                 id: userItem
             }, function (error, response) {
@@ -102,7 +102,7 @@ function userPrompt() {
                     connection.query(updateQty, [
                         {
                             stock_quantity:response[0].stock_quantity-userQty,
-                            product_sales:productSalesTotal
+                            product_sales:productSalesTotal                            
                         },
                         {
                             id:userItem

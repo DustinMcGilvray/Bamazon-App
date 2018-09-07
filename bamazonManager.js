@@ -83,7 +83,7 @@ function saleProducts() {
         });
         t.attrRange({
             row: [1],
-            column: [0, 3]
+            column: [0, 4]
         }, {
             color: "green",
             bg: "black"
@@ -132,7 +132,7 @@ function showInventory() {
         });
         t.attrRange({
             row: [1],
-            column: [0, 3]
+            column: [0, 4]
         }, {
             color: "green",
             bg: "black"
@@ -181,7 +181,7 @@ function lowInventory() {
         });
         t.attrRange({
             row: [1],
-            column: [0, 3]
+            column: [0, 4]
         }, {
             color: "green",
             bg: "black"
@@ -202,7 +202,7 @@ function lowInventory() {
         });
 
         console.log("" + t);
-        addInvendCon();
+        addInvEndCon();
     });
 }
 // Function to Show Low Inventory before add Inventory Function but NOT END CONNECTION
@@ -229,7 +229,7 @@ function lowInventoryShow() {
         });
         t.attrRange({
             row: [1],
-            column: [0, 3]
+            column: [0, 4]
         }, {
             color: "green",
             bg: "black"
@@ -292,7 +292,7 @@ function addInventory() {
                         }
                     ], function (error, data) {
                         if (error) throw error;
-                        console.log("Stock has been updated. You have added " + answer.stock);
+                        console.log("Stock has been updated. You have added " + answer.stock + " to item number " + userItem);
                         showInventory();
                     })
                 }
@@ -327,17 +327,25 @@ function newProduct() {
                 name: "stock",
                 type: "input",
                 message: "What is the stock quantity of the new product?",
+            },
+            {
+                name: "sales",
+                type: "input",
+                message: "Set the product sales to 0"
             }
         ])
         .then(function (answer) {
-            var sql = "INSERT INTO products SET ?";
-            connection.query(sql, {
+            console.log("Adding new product to database...\n")
+            var newProduct = "INSERT INTO products SET ?";
+            connection.query(newProduct, {
                     product_name: answer.product,
                     department_name: answer.department,
                     price: answer.price,
-                    stock_quantity: answer.stock
+                    stock_quantity: answer.stock,
+                    product_sales: answer.sales
                 },
-                function (error, response) {
+                function (error) {
+                    if (error) throw error;
                     console.log("The new product has been added!");
                     saleProducts();
                 }
@@ -345,7 +353,7 @@ function newProduct() {
         })
 }
 //Prompt to add Inventory or End Connection
-function addInvendCon() {
+function addInvEndCon() {
     inquirer.prompt({
         name: "decide",
         type: "list",
