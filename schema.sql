@@ -55,6 +55,9 @@ overhead_costs DECIMAL (10, 2) NOT NULL,
 PRIMARY KEY (ID)
 );
 
+ALTER TABLE departments
+ADD product_sales DECIMAL (10, 2) NOT NULL;
+
 INSERT INTO departments (department_name, overhead_costs)
 VALUES ("Apparel", 1000.00);
 INSERT INTO departments (department_name, overhead_costs)
@@ -63,3 +66,5 @@ INSERT INTO departments (department_name, overhead_costs)
 VALUES ("Movies", 1000.00);
 INSERT INTO departments (department_name, overhead_costs)
 VALUES ("Music", 250.00);
+
+SELECT departments. *, SUM(products.product_sales) AS total_sales FROM departments LEFT JOIN products ON departments.department_name GROUP BY products.department_name;
