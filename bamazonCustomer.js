@@ -2,6 +2,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var Table = require("terminal-table");
+var colors = require("colors");
 //Setting up the mySQL Connection to Database
 var connection = mysql.createConnection({
     host: "localhost",
@@ -36,6 +37,7 @@ function endConnection() {
 }
 //App Start Function
 function startApp() {
+    console.log("\n Welcome to the 80's Bamazon Store. Your source for 1980's nostalgia.\n".green)
     inquirer.prompt({
         name: "search",
         type: "list",
@@ -87,10 +89,10 @@ function userPrompt() {
                 if (error) throw error;
             
                 if (response[0].stock_quantity < userQty) {
-                    console.log("Item Quantity is not Available. Please modify quantity.");
+                    console.log("Item Quantity is not Available. Please modify quantity.".bgRed);
                     userPrompt();
                 } else if (response[0].stock_quantity >= userQty) {
-                    console.log("We are processing your order.");
+                    console.log("We are processing your order.".green);
 
                     // Update the mySQL Database
                     var itemPrice = response[0].price;
@@ -110,7 +112,7 @@ function userPrompt() {
                     ] ,function (error, data) {
                         if (error) throw error;
                         // console.log(data);
-                        console.log("Your order has been processed. Your total is $" + response[0].price * userQty);
+                        console.log(colors.green("Your order has been processed. Your total is $" + response[0].price * userQty));
                         endConnection();
 
                     })
