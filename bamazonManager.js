@@ -2,6 +2,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var Table = require("terminal-table");
+var colors = require("colors");
 //Setting up the mySQL Connection to Database
 var connection = mysql.createConnection({
     host: "localhost",
@@ -17,6 +18,7 @@ connection.connect(function (error) {
 });
 //App Start Function
 function startApp() {
+    console.log("\nWelcome Management. What would you like to do today?\n".green)
     inquirer.prompt({
             name: "search",
             type: "list",
@@ -280,7 +282,7 @@ function addInventory() {
                 if (error) throw error;
 
                 if (response[0].stock_quantity + userQty) {
-                    console.log("Stock quantity is being updated.");
+                    console.log("Stock quantity is being updated.".green);
 
                     // Update the mySQL Database
                     var updateQty = "UPDATE products SET ? WHERE ?";
@@ -292,7 +294,7 @@ function addInventory() {
                         }
                     ], function (error, data) {
                         if (error) throw error;
-                        console.log("Stock has been updated. You have added " + answer.stock + " to item number " + userItem);
+                        console.log(colors.green("Stock has been updated. You have added " + answer.stock + " to item number " + userItem));
                         showInventory();
                     })
                 }
@@ -335,7 +337,7 @@ function newProduct() {
             }
         ])
         .then(function (answer) {
-            console.log("Adding new product to database...\n")
+            console.log("Adding new product to database...\n".green)
             var newProduct = "INSERT INTO products SET ?";
             connection.query(newProduct, {
                     product_name: answer.product,
@@ -346,7 +348,7 @@ function newProduct() {
                 },
                 function (error) {
                     if (error) throw error;
-                    console.log("The new product has been added!");
+                    console.log("The new product has been added!".green);
                     saleProducts();
                 }
             );
