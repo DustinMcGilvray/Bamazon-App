@@ -36,8 +36,8 @@ function startApp() {
 }
 
 function viewProductSales() {
-    // var displayData = "SELECT * FROM departments";
-    var displayData = "SELECT departments. *, SUM(products.product_sales) AS total_sales FROM departments LEFT JOIN products ON departments.department_name GROUP BY products.department_name";
+    var displayData = "SELECT * FROM departments";
+    // var displayData = "SELECT departments. *, SUM(products.product_sales) AS total_sales FROM departments LEFT JOIN products ON departments.department_name GROUP BY products.department_name";
     connection.query(displayData,
         function (error, response) {
         if (error) throw error;
