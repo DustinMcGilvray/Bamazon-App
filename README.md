@@ -10,6 +10,18 @@ As a Customer at Bamazon, the application will begin by displaying a prompt that
 *Initial Prompt*
 ![Screenshot](screencaptures/commandLineBegin.JPG)
 
+*Apparel Department Selected and Excessive Quantity Selected*
+![Screenshot](screencaptures/commandLineInventoryNotEnough.JPG)
+
+*Apparel Department Selected and Purchase Successful*
+![Screenshot](screencaptures/commandLinePurchaseSuccess.JPG)
+
+*mySQL Database Pre-Purchase*
+![Screenshot](screencaptures/databaseBegin.jpg)
+
+*mySQL Database Post-Purchase showing updated stock quantity on purchased Item*
+![Screenshot](screencaptures/dataBasePurchaseUpdate.JPG)
+
 #### Manager Level
 As a Manager for Bamazon, the application will begin by displaying a list of options: 
 
