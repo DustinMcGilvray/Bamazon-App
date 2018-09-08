@@ -25,9 +25,24 @@ As a Customer at Bamazon, the application will begin by displaying a prompt that
 #### Manager Level
 As a Manager for Bamazon, the application will begin by displaying a list of options: 
 
+*Initial Prompt*
+![Screenshot](screencaptures/commandLineManagerBegin.JPG)
+
 * View Products for Sale - will list every available item for sale and available information: the item IDs, names, prices, and quantities.
+
+*View Products*
+![Screenshot](screencaptures/commandLineManagerViewProducts.JPG)
+
 * View Low Inventory - will list all items with an inventory count lower than five.
+
+*Low Inventory*
+![Screenshot](screencaptures/commandLineManagerLowInventory.JPG)
+
 * Add to Inventory - will display a prompt that will allow stock to be replenished. 
+
+*Add Inventory*
+![Screenshot](screencaptures/commandLineManagerAddInventory.JPG)
+
 * Add New Product - will allow a completely new product to be added to the store.
 
 The inventory database will be updated with any new stock or products added by the Manager.
