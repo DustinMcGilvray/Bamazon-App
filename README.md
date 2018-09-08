@@ -43,9 +43,33 @@ As a Manager for Bamazon, the application will begin by displaying a list of opt
 *Add Inventory*
 ![Screenshot](screencaptures/commandLineManagerAddInventory.JPG)
 
+*Inventory Added*
+![Screenshot](screencaptures/commandLineManagerUpdateInventory.JPG)
+
+The inventory database will be updated with any inventory added by the Manager.
+
+*mySQL Database before added Inventory*
+![Screenshot](screencaptures/dataBaseManagerStockUpdate.JPG)
+
+*mySQL Database after added Inventory*
+![Screenshot](screencaptures/dataBaseManagerStockUpdateAfter.JPG)
+
 * Add New Product - will allow a completely new product to be added to the store.
 
-The inventory database will be updated with any new stock or products added by the Manager.
+*New Product*
+![Screenshot](screencaptures/commandLineManagerNewProduct.JPG)
+
+*New Product Added*
+![Screenshot](screencaptures/commandLineManagerNewProductAfter.JPG)
+
+ The inventory database will be updated with any new products added by the Manager.
+ 
+ *mySQL Database Pre-Product Added*
+![Screenshot](screencaptures/dataBaseManagerNewProduct.JPG)
+
+*mySQL Database Post-Product Added *
+![Screenshot](screencaptures/dataBaseManagerNewProductAfter.JPG)
+ 
 
 #### Supervisor Level
 As a Supervisor at Bamazon, the application will begin by displaying a list of options:
