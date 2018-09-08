@@ -17,7 +17,7 @@ As a Customer at Bamazon, the application will begin by displaying a prompt that
 ![Screenshot](screencaptures/commandLinePurchaseSuccess.JPG)
 
 *mySQL Database Pre-Purchase*
-![Screenshot](screencaptures/databaseBegin.JPG)
+![Screenshot](screencaptures/dataBaseBegin.JPG)
 
 *mySQL Database Post-Purchase showing updated stock quantity on purchased Item*
 ![Screenshot](screencaptures/dataBasePurchaseUpdate.JPG)
