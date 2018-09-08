@@ -5,8 +5,9 @@ Bamazon is a Command-Line Interface (CLI) application that consists of three use
 
 #### Customer Level
 
-As a Customer at Bamazon, the application will begin by displaying items for sale by Department or All items. The items can then be 'purchased' from the Bamazon store. Once an item has been chosen, the application will check available stock against the desired purchase quantity. If the stock is available, the purchase will be processed, the inventory will be reduced by the quantity purchsed, and the sale will be added to the product sales. If the stock is not available to fill the order, the Customer will be given a prompt to choose another item or reduce desired quantity. 
+As a Customer at Bamazon, the application will begin by displaying a prompt that allows the Customer to shop by Department or all available products through the 'Not Sure' option. The items can then be 'purchased' from the Bamazon store by selecting the products ID. Once an item has been chosen, the application will check available stock against the desired purchase quantity. If the stock is available, the purchase will be processed, the inventory will be reduced by the quantity purchsed, and the sale will be added to the product sales. If the stock is not available to fill the order, the Customer will be given a prompt to choose another item or reduce desired quantity. 
 
+*Initial Prompt*
 ![Screenshot](screencaptures/commandLineBegin.JPG)
 
 #### Manager Level
