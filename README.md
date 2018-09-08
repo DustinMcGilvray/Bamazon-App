@@ -1,6 +1,6 @@
 # Bamazon-App
 
-### DESCRIPTION
+## DESCRIPTION
 Bamazon is a Command-Line Interface (CLI) application that consists of three user levels: Customer, Management, and Supervisor.
 
 #### Customer Level
@@ -37,3 +37,16 @@ As a Supervisor at Bamazon, the application will begin by displaying a list of o
 
 * View Product Sales by Department - displays a summarized table with department_id, department_name, over_head_costs, product_sales, and total_profit.
 * Create New Department - will allow entirely new Departments to be created for Bamazon. 
+
+## INSTALL
+1. Clone Repository to your machine.
+2. Make sure mySQL Workbench is installed on your machine. If not, vist [mySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+3. Create the database in mySQL with the schema file provided.
+4. Use the npm install command in the command line to install the dependencies from the package.json file.
+
+## USE
+1. Using the Command Line, navigate to the root file and input:
+* node bamazonCustomer.js - This will run the Customer Side.
+* node bamazonManger.js - This will run the Manager Side.
+* node bamazonSupervisor.js - This will run the Supervisor Side.
+2. Follow the Prompts on the screen.
