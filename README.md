@@ -1,6 +1,6 @@
 # Bamazon-App
 
-### DESCRIPTION
+## DESCRIPTION
 Bamazon is a Command-Line Interface (CLI) application that consists of three user levels: Customer, Management, and Supervisor.
 
 #### Customer Level
@@ -17,7 +17,7 @@ As a Customer at Bamazon, the application will begin by displaying a prompt that
 ![Screenshot](screencaptures/commandLinePurchaseSuccess.JPG)
 
 *mySQL Database Pre-Purchase*
-![Screenshot](screencaptures/dataBaseBegin.JPG)
+![Screenshot](screencaptures/databaseBegin.jpg)
 
 *mySQL Database Post-Purchase showing updated stock quantity on purchased Item*
 ![Screenshot](screencaptures/dataBasePurchaseUpdate.JPG)
@@ -25,15 +25,71 @@ As a Customer at Bamazon, the application will begin by displaying a prompt that
 #### Manager Level
 As a Manager for Bamazon, the application will begin by displaying a list of options: 
 
-* View Products for Sale - will list every available item for sale and available information: the item IDs, names, prices, and quantities.
+*Initial Prompt*
+![Screenshot](screencaptures/commandLineManagerBegin.JPG)
+
+* View Products for Sale - will list all available items for sale with the following information: item IDs, names, prices, and quantities.
+
+*View Products*
+![Screenshot](screencaptures/commandLineManagerViewProducts.JPG)
+
 * View Low Inventory - will list all items with an inventory count lower than five.
+
+*Low Inventory*
+![Screenshot](screencaptures/commandLineManagerLowInventory.JPG)
+
 * Add to Inventory - will display a prompt that will allow stock to be replenished. 
+
+*Add Inventory*
+![Screenshot](screencaptures/commandLineManagerAddInventory.JPG)
+
+*Inventory Added*
+![Screenshot](screencaptures/commandLineManagerUpdateInventory.JPG)
+
+The inventory database will be updated with any inventory added by the Manager.
+
+*mySQL Database before added Inventory*
+![Screenshot](screencaptures/dataBaseManagerStockUpdate.JPG)
+
+*mySQL Database after added Inventory*
+![Screenshot](screencaptures/dataBaseManagerStockUpdateAfter.JPG)
+
 * Add New Product - will allow a completely new product to be added to the store.
 
-The inventory database will be updated with any new stock or products added by the Manager.
+*New Product*
+![Screenshot](screencaptures/commandLineManagerNewProduct.JPG)
 
-#### Supervisor Level
+*New Product Added*
+![Screenshot](screencaptures/commandLineManagerNewProductAfter.JPG)
+
+ The inventory database will be updated with any new products added by the Manager.
+ 
+ *mySQL Database Pre-Product Added*
+![Screenshot](screencaptures/dataBaseManagerNewProduct.JPG)
+
+*mySQL Database Post-Product Added *
+![Screenshot](screencaptures/dataBaseManagerNewProductAfter.JPG)
+ 
+
+#### Supervisor Level - UNDER CONSTRUCTION
 As a Supervisor at Bamazon, the application will begin by displaying a list of options:
 
+*Supervisor Menu*
+![Screenshot](screencaptures/commandLineSupervisorBegin.JPG)
+
 * View Product Sales by Department - displays a summarized table with department_id, department_name, over_head_costs, product_sales, and total_profit.
+
 * Create New Department - will allow entirely new Departments to be created for Bamazon. 
+
+## INSTALL
+1. Clone the Repository to your machine via the command line. 
+2. Make sure mySQL Workbench is installed on your machine. If not, vist [mySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+3. Create the database in mySQL with the schema file provided.
+4. Use the ``` npm install ``` command in the command line to install the dependencies from the package.json file.
+
+## USE
+1. Using the Command Line, navigate to the root file and input:
+* ``` node bamazonCustomer.js ``` - This will run the Customer Side.
+* ``` node bamazonManger.js ``` - This will run the Manager Side.
+* ``` node bamazonSupervisor.js ``` - This will run the Supervisor Side.
+2. Follow the Prompts on the screen.
