@@ -28,7 +28,7 @@ As a Manager for Bamazon, the application will begin by displaying a list of opt
 *Initial Prompt*
 ![Screenshot](screencaptures/commandLineManagerBegin.JPG)
 
-* View Products for Sale - will list every available item for sale and available information: the item IDs, names, prices, and quantities.
+* View Products for Sale - will list all available items for sale with the following information: item IDs, names, prices, and quantities.
 
 *View Products*
 ![Screenshot](screencaptures/commandLineManagerViewProducts.JPG)
@@ -71,10 +71,14 @@ The inventory database will be updated with any inventory added by the Manager.
 ![Screenshot](screencaptures/dataBaseManagerNewProductAfter.JPG)
  
 
-#### Supervisor Level
+#### Supervisor Level - UNDER CONSTRUCTION
 As a Supervisor at Bamazon, the application will begin by displaying a list of options:
 
+*Supervisor Menu*
+![Screenshot](screencaptures/commandLineSupervisorBegin.JPG)
+
 * View Product Sales by Department - displays a summarized table with department_id, department_name, over_head_costs, product_sales, and total_profit.
+
 * Create New Department - will allow entirely new Departments to be created for Bamazon. 
 
 ## INSTALL
