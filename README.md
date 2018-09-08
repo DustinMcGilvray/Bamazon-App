@@ -94,10 +94,18 @@ As a Supervisor at Bamazon, the application will begin by displaying a list of o
 * ``` node bamazonSupervisor.js ``` - This will run the Supervisor Side.
 2. Follow the Prompts on the screen.
 
-### Technologies 
+### Crafted With
 * mySQL
 * Node.JS
 * JavaScript
+* Visual Studio
+* GitBash
+
+### NPM'S
+* [terminal-table] (https://www.npmjs.com/package/terminal-table)
+* [inquirer] (https://www.npmjs.com/package/inquirer)
+* [colors.js] (https://www.npmjs.com/package/colors)
+* [mysql] (https://www.npmjs.com/package/mysql)
 
 ### Authors
 Dustin McGilvray
