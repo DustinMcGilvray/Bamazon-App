@@ -102,10 +102,10 @@ As a Supervisor at Bamazon, the application will begin by displaying a list of o
 * GitBash
 
 ### NPM'S
-* [terminal-table] (https://www.npmjs.com/package/terminal-table)
-* [inquirer] (https://www.npmjs.com/package/inquirer)
-* [colors.js] (https://www.npmjs.com/package/colors)
-* [mysql] (https://www.npmjs.com/package/mysql)
+* [terminal-table](https://www.npmjs.com/package/terminal-table)
+* [inquirer](https://www.npmjs.com/package/inquirer)
+* [colors.js](https://www.npmjs.com/package/colors)
+* [mysql](https://www.npmjs.com/package/mysql)
 
 ### Authors
 Dustin McGilvray
