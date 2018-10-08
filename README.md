@@ -97,7 +97,7 @@ As a Supervisor at Bamazon, the application will begin by displaying a list of o
 ### Crafted With
 * [mySQL Workbench](https://www.mysql.com/products/workbench/)
 * [Node.JS](https://nodejs.org/en/)
-* ![alt text]( logos/javascript-logo_small.jpg "Javascript")
+* Javascript
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [GitBash](https://git-scm.com/downloads)
 
