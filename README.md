@@ -95,11 +95,12 @@ As a Supervisor at Bamazon, the application will begin by displaying a list of o
 2. Follow the Prompts on the screen.
 
 ### Crafted With
-* mySQL
-* Node.JS
+* [mySQL Workbench](https://www.mysql.com/products/workbench/)
+* [Node.JS](https://nodejs.org/en/)
 * JavaScript
-* Visual Studio
-* GitBash
+* ![alt text]( logos/javascript-logo_small.jpg "Javascript")
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [GitBash](https://git-scm.com/downloads)
 
 ### NPM'S
 * [terminal-table](https://www.npmjs.com/package/terminal-table)
